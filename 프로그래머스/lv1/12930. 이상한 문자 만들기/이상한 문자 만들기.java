@@ -2,7 +2,7 @@ class Solution {
     public String solution(String s) {
         String answer = "";
         StringBuilder sb = new StringBuilder();
-        String[] words = s.split(" ",-1);
+        String[] words = s.split(" ",-1); // limit값으로 -1을 주면 공백도 배열에 들어간다!
         
         
         for(int i=0; i<words.length; i++){
@@ -15,13 +15,11 @@ class Solution {
                 }
             }
             if(i != words.length-1) sb.append(" ");
-            
         }
         
         //if(s.charAt(s.length()-1) == (' ')) sb.append(" ");
         
         answer = sb.toString();
-        
         return answer;
     }
 }
