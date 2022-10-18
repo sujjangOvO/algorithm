@@ -1,0 +1,46 @@
+import java.io.*;
+import java.util.*;
+
+class Member{
+		String name;
+		double height;
+		
+		public Member(String name, double height){
+			this.name = name;
+			this.height = height;
+		}
+		
+		public String output(){
+			return (name + " " + String.format("%.2f", height));
+		}
+	}
+
+class Main {
+	public static void main(String[] args) throws Exception {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int k = sc.nextInt();
+		double height = 0;
+		
+		List<Member> attendances = new ArrayList<>();	
+		
+		for(int i=0; i<n; i++){
+			attendances.add(new Member(sc.next(),sc.nextDouble()));
+		}
+		sc.close();
+		
+		Collections.sort(attendances, (p1, p2)->{ // 음수가 나오면 p1이 작다고 판단. 양수가 나오면 p1이 크다고 판단.
+			if(p1.name.equals(p2.name)){
+				if(p1.height > p2.height){
+					return 1;
+				}
+				else return -1;
+			}
+			else{
+				return p1.name.compareTo(p2.name);
+			}
+		});
+		
+		System.out.println(attendances.get(k-1).output());
+	}
+}
