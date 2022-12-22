@@ -1,0 +1,25 @@
+#include<stdio.h> 
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	//freopen("input.txt", "rt", stdin);
+	char number[20]; // 끝에 null까지 포함하려면 20크기
+	int year, age;
+	
+	scanf("%s", &number);
+	if(number[7]=='1' || number[7]=='2'){ // 90년대생 
+ 		year = 1900 + (number[0]-48) * 10 + (number[1]-48); // char to int, '0'은 48 
+ 	}	 
+	else{ // 00년대생 
+		year = 2000 + (number[0]-48) * 10 + (number[1]-48); // char to int, '0'은 48 
+	}
+	
+	age = 2019 - year + 1;
+	printf("%d ",age);
+	
+	if(number[7]=='1' || number[7]=='3') printf("M\n"); // 성별 출력
+ 	else printf("W\n");
+	
+	
+	return 0 ;
+}
