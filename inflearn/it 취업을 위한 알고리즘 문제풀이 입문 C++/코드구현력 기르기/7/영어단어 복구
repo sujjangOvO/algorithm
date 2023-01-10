@@ -1,0 +1,37 @@
+#include<stdio.h> 
+// #include<string.h>, strlen(str) 사용하려고 썼었음 
+
+int main(int argc, char** argv) {
+	freopen("input.txt", "rt", stdin);
+	char str[101], result[101];
+	int idx = 0;
+	// scanf("%s", str); scanf는 공백이 연속인 문자열을 읽을 수 없다  
+	gets(str); 
+	
+	for(int i=0; str[i]!='\0'; i++){
+		/*
+		if(str[i]>=65 && str[i]<=90){
+			result[idx++] = str[i] + 32;
+		}
+		else if(str[i] == 32){
+			continue;
+		}
+		else{
+			result[idx++] = str[i];
+		}
+		*/
+		if(str[i]!=' '){
+			if(str[i]>=65 && str[i]<=90){
+				result[idx++] = str[i] + 32;
+			}
+			else{
+				result[idx++] = str[i];
+			}
+		}
+		
+	}
+	result[idx] = '\0';  // 끝 문자 넣어줘야 함 
+	printf("%s", result);
+	
+	return 0 ;
+}
