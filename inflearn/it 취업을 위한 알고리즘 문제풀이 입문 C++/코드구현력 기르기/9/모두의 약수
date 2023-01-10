@@ -1,0 +1,21 @@
+#include<stdio.h> 
+
+int main(int argc, char** argv) {
+	freopen("input.txt", "rt", stdin);
+	int n;
+	scanf("%d",&n);
+	int arr[n+1] = {0, }; // 배열을 0으로 초기화 , 0번째 인덱스를 사용하지 않으므로 n+1 크기의 배열을 선언한다.  
+	
+	for(int i=1; i<=n; i++){
+		for(int j=i; j<=n; j=j+i){ // j가 i의 배수로 늘어나므로 시간복잡도가 크게 감소한다!  
+			arr[j] += 1;
+		}
+	}
+	
+	for(int i=1; i<=n; i++){
+		printf("%d ", arr[i]);
+	}
+	
+	
+	return 0;
+}
