@@ -1,0 +1,34 @@
+#include<stdio.h> 
+#include<string.h>
+
+int main(int argc, char** argv) {
+	// freopen("input.txt", "rt", stdin);
+	int cnt=0;
+	char str[31];
+	scanf("%s", str);
+	
+	/* 내 풀이, 문제점: 처음과 끝 괄호를 비교하지 말고 cnt가 음수인 경우 바로 break로 넘어가면 된다.
+	if(str[0] == ')' || str[strlen(str)-1] == '(') {
+		printf("NO");
+		return 0;
+	}
+	
+	else{
+		for(int i=0; str[i]!='\0'; i++){
+		if(str[i] == '(') cnt++;
+		else cnt--;
+	} 
+	}
+	*/
+	
+	for(int i=0; str[i]!='\0'; i++){
+		if(str[i] == '(') cnt++;
+		else cnt--;
+		if(cnt<0) break; // ) 가 많아지면 바로 break => )가 많아진건 잘못된 괄호임이 분명 
+	} 
+		
+	if(cnt == 0) printf("YES");
+	else printf("NO");
+	
+	return 0 ;
+}
