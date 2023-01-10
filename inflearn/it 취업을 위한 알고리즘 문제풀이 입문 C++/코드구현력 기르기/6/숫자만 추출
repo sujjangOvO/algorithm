@@ -4,7 +4,7 @@ using namespace std;
 int main(int argc, char** argv) {
 	//freopen("input.txt", "rt", stdin);
  	char a[100];
- 	int result=0, cnt=2, i; // 약수 1과 본인자신은  포함되어있으므로 1부터  
+ 	int result=0, cnt=2, i; // 약수 1과 본인자신은 포함되어 있으므로 cnt 초기값은 2  
  	scanf("%s",&a);
  	
  	for(int i=0; a[i]!='\0'; i++){
