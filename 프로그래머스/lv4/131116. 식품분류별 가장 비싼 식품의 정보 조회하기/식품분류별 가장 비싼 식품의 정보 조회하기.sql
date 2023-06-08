@@ -1,7 +1,8 @@
--- 코드를 입력하세요
+-- SELECT 절에서 MAX(PRICE)하면 해당 가격을 가진 제품 이름과 PRODUCT_NAME이 매핑되지 않아 오류 발생
 SELECT CATEGORY, PRICE AS MAX_PRICE, PRODUCT_NAME
 FROM FOOD_PRODUCT
-WHERE (CATEGORY, PRICE) IN (SELECT CATEGORY, MAX(PRICE)
+WHERE (CATEGORY, PRICE) IN (
+                            SELECT CATEGORY, MAX(PRICE)
                             FROM FOOD_PRODUCT
                             GROUP BY CATEGORY 
                             HAVING CATEGORY IN ('과자', '국','김치','식용유')
