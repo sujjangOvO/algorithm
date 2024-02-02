@@ -1,23 +1,38 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Stack;
+
 
 public class Main {
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
         int T = Integer.parseInt(br.readLine());
+        Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < T; i++) {
-            String[] strs = br.readLine().split(" ");
+            String str = br.readLine();
 
-            for (String str : strs) {
-                StringBuilder sb = new StringBuilder(str); // 1. StringBuilder의 reverse함수 사용
-                System.out.print(sb.reverse() + " ");
+            for (int j = 0; j < str.length(); j++) {
+                char ch = str.charAt(j);
+                if (ch == ' ' || j == str.length() - 1) {
+                    if (ch != ' ') {
+                        stack.push(ch);
+                    }
+                    while (!stack.isEmpty()) {
+                        sb.append(stack.pop());
+                    }
+                    sb.append(" ");
+                } else {
+                    stack.push(ch);
+                }
             }
 
-            System.out.println();
+            System.out.println(sb);
+            sb.setLength(0);
         }
-
-        br.close();
     }
 }
